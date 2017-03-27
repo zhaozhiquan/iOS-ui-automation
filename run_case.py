@@ -5,7 +5,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 import unittest
 
-import HTMLTestRunner
+import HTMLTestRunner1 as HTMLTestRunner
 import time
 import os
 import shutil
@@ -15,7 +15,7 @@ def Creatsuite():
     #定义单元测试容器
     testunit = unittest.TestSuite()
     #定搜索用例文件的方法
-    discover = unittest.defaultTestLoader.discover(casepath, pattern='test02*', top_level_dir=None)
+    discover = unittest.defaultTestLoader.discover(casepath, pattern='test0*', top_level_dir=None)
     #将测试用例加入测试容器中
     for testsuite in discover:
         for casename in testsuite:
@@ -23,10 +23,9 @@ def Creatsuite():
         print testunit
     return testunit
 test_case = Creatsuite()
-#获取系统当前时间
-now = time.strftime('%Y-%m-%d-%H_%M_%S', time.localtime(time.time()))
-#定义个报告存放路径，支持相对路径
+#获取系统当前日期
 day = time.strftime('%Y-%m-%d')
+#定义个报告存放路径，支持相对路径
 aaa=os.path.exists('./result/'+day)
 if aaa:
     shutil.rmtree('./result/'+day)

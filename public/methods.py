@@ -11,10 +11,13 @@ class Methods(object):
 			'deviceName': 'iPhone 6s',
 			'autoAcceptAlerts': True,
 			# 'autoDismissAlerts' : True ,
-			'reuse': 3,
-			'udid':'',
-			'bundleId':'',
-
+			#'reuse': 3,
+			'udid':'e6505fdce9a8459fd534d3a8da8352c315cb2058',
+			#'bundleId':'com.zhankai.tmcs',
+			'bundleId': 'com.inone.mbzj001',
+			#'bundleId': 'com.inone.shenyudalu',
+			#'app': './automation/iosSDK/AGJointOperationSDKDemo.app',
+			'automationName':'XCUITest'
 		}
 		return desired_caps
 	def server_url(self):
@@ -30,8 +33,13 @@ class Methods(object):
 		self.name = dict1['name']
 		day = strftime('%Y-%m-%d')
 		path = 'result/' + day + '/screencap/'
-		self.driver.save_screenshot(os.getcwd()+os.sep+path + self.name + '.png')
-		print os.getcwd()+os.sep+path + self.name + '.png'
+		if os.getcwd()+os.sep =='/Users/zhaozhiquan/automation/iOSSdk/TestCase/':
+			self.driver.save_screenshot(os.getcwd() + os.sep +'../'+ path + self.name + '.png')
+
+		else:
+			self.driver.save_screenshot(os.getcwd()+os.sep+path + self.name + '.png')
+
+
 
 	def dy_Equal(self,driver,value1,value2,screen_name):
 		#断言,assertEqual,断言失败会截图
@@ -90,7 +98,7 @@ class Methods(object):
 		#上划动
 		self.driver = driver
 		a = self.public(self.driver)
-		self.driver.touch('drag', {'fromX':a[0] / 2, 'fromY':a[1] * 5 / 6, 'toX':a[0] / 2, 'toY':a[1] * 1 / 6,'duration': 1})
+		self.driver.touch('drag', {'fromX':a[0] / 2, 'fromY':a[1] * 5 / 6, 'toX':a[0] / 2, 'toY':a[1] * 1 / 6,'duration': 0})
 		sleep(2)
 
 	def down_swipe(self, driver):
@@ -100,4 +108,51 @@ class Methods(object):
 		self.driver.touch('drag', {'fromX':a[0] / 2, 'fromY':a[1] * 1 / 6, 'toX':a[0] / 2, 'toY':a[1] * 5 / 6, 'duration': 1})
 		sleep(2)
 
+	def element(self,driver,methods,value):
+		'''
+		:param driver:驱动
+		:param methods: 方式
+		:param value: 值
+		:return: 返回对象
+		'''
+		self.driver = driver
+		if methods == 'name':
+			return self.driver.find_element_by_name(value)
+		elif methods == 'xpath':
+			return  self.driver.find_element_by_xpath(value)
+		elif methods == 'id':
+			return self.driver.find_element_by_id(value)
+		elif methods == 'class':
+			return self.driver.find_element_by_class_name(value)
 
+	def elements(self,driver,methods,value):
+		'''
+		:param driver:驱动
+		:param methods: 方式
+		:param value: 值
+		:return: 返回对象list
+		'''
+		self.driver = driver
+		if methods == 'name':
+			return self.driver.find_elements_by_name(value)
+		elif methods == 'xpath':
+			return  self.driver.find_elements_by_xpath(value)
+		elif methods == 'id':
+			return self.driver.find_elements_by_id(value)
+		elif methods == 'class':
+			return self.driver.find_elements_by_class_name(value)
+
+
+	def element_or_none(self,driver,methods,value):
+		'''
+		:param driver:驱动
+		:param methods:方式
+		:param value:知
+		:return:元素存在返回元素,不存在,返回None
+		'''
+		self.driver = driver
+		try:
+			element = self.element(self.driver,methods,value)
+		except:
+			element = None
+		return element
