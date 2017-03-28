@@ -153,7 +153,7 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 		except:pass
 		self.element(self.driver,self.using[25], self.value[25]).click()  # 多账号查看
 		el = self.elements(self.driver,self.using[26], self.value[26])
-		el[1].click()                                                 #选择第二个账号
+		el[1].click()                                                      #选择第二个账号
 		self.element(self.driver,self.using[27], self.value[27]).click()   #登录
 		sleep(10)
 		el3 =self.element_or_none(self.driver,self.using[27], self.value[27])  #继续查找登录按钮

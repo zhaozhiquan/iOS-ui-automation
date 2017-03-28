@@ -59,6 +59,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[8], '//*[@value=%s]'% self.preset[8]) #重新获取该元素
 			if el2.text == self.preset[8]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		for i in xrange(10):
 			self.element(self.driver,self.using[9], self.value[9]).click()   #获取验证码
 			el = self.element(self.driver,self.using[10], self.value[10])      #提示
@@ -80,6 +82,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[12], '//*[@value=%s]'% self.preset[12]) #重新获取该元素
 			if el2.text == self.preset[12]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		for i in xrange(10):
 			self.element(self.driver,self.using[13], self.value[13]).click()   #获取验证码
 			el = self.element(self.driver,self.using[14], self.value[14])      #提示
@@ -101,7 +105,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[16], '//*[@value=%s]'% self.preset[16]) #重新获取该元素
 			if el2.text == self.preset[16]:  #判断输入的与 预置是否一致
 				break
-
+			else:
+				el.clear()
 		self.element(self.driver,self.using[17], self.value[17]).click()   #获取验证码
 		el = self.element(self.driver,self.using[18], self.value[18])      #提示
 		try:
@@ -125,6 +130,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[20], '//*[@value=%s]'% self.preset[20]) #重新获取该元素
 			if el2.text == self.preset[20]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		for i in xrange(10):
 			self.element(self.driver,self.using[21], self.value[21]).click()   #下一步
 
@@ -147,6 +154,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[24], '//*[@value=%s]'% self.preset[24]) #重新获取该元素
 			if el2.text == self.preset[24]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 
 		el3 = self.element(self.driver,self.using[25], self.value[25])     #验证码输入框
 		el3.send_keys(self.preset[25].encode('utf-8').decode("utf-8")) #输入
@@ -172,6 +181,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[29], '//*[@value=%s]'% self.preset[29]) #重新获取该元素
 			if el2.text == self.preset[29]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 
 		el3 = self.element(self.driver,self.using[30], self.value[30])     #验证码输入框
 		el3.send_keys(self.preset[30].encode('utf-8').decode("utf-8")) #输入
@@ -201,6 +212,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[34], '//*[@value=%s]'% self.preset[34]) #重新获取该元素
 			if el2.text == self.preset[34]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 
 		el3 = self.element(self.driver,self.using[35], self.value[35])     #验证码输入框
 		el3.send_keys(self.preset[35].encode('utf-8').decode("utf-8")) #输入

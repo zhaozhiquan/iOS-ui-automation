@@ -23,7 +23,6 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 		try:
 			self.element(self.driver,'name','显示登录UI').click()
 		except:pass
-		self.element(self.driver, 'name', 'Done').click()  # 隐藏键盘
 		self.element(self.driver,self.using[1], self.value[1]).click()  #进入用户协议
 		el = self.element(self.driver,self.using[2], self.value[2])     #协议title
 		print unicode('测试结果: %s' %el.text.encode('utf-8'))
@@ -34,7 +33,6 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 		try:
 			self.element(self.driver,'name', '显示登录UI').click()
 		except:pass
-		self.element(self.driver, 'name', 'Done').click()  # 隐藏键盘
 		self.element(self.driver,self.using[3], self.value[3]).click()  # 进入用户协议
 		self.element(self.driver,self.using[4], self.value[4]).click()  #返回
 		sleep(2)
@@ -73,6 +71,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[10], '//*[@value=%s]'% self.preset[10]) #重新获取该元素
 			if el2.text == self.preset[10]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		for i in xrange(10):
 			self.element(self.driver,self.using[11], self.value[11]).click()    #获取验证码
 
@@ -97,6 +97,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[14], '//*[@value=%s]'% self.preset[14]) #重新获取该元素
 			if el2.text == self.preset[14]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		for i in xrange(10):
 			self.element(self.driver,self.using[15], self.value[15]).click()    #获取验证码
 
@@ -121,16 +123,18 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[18], '//*[@value=%s]'% self.preset[18]) #重新获取该元素
 			if el2.text == self.preset[18]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		self.element(self.driver,self.using[19], self.value[19]).click()    #获取验证码
 
 		el3 = self.element(self.driver,self.using[20], self.value[20])     #提示
 		try:
-			print ('测试结果: %s' % el3.text.encode('utf-8'))
-			print ('预期结果: %s' % self.exp[17].encode('utf-8'))
+			print unicode('测试结果: %s' % el3.text.encode('utf-8'))
+			print unicode('预期结果: %s' % self.exp[17].encode('utf-8'))
 			self.dy_Equal(self.driver, unicode(el3.text), self.exp[17], self.case_id[17])  # 断言
 		except:
-			print ('测试结果: %s' % el3)
-			print ('预期结果: 元素不为空')
+			print unicode('测试结果: %s' % el3)
+			print unicode('预期结果: 元素不为空')
 			self.dy_IsNotNone(self.driver,el3,self.case_id[17])
 
 	def test_107(self):
@@ -145,6 +149,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[22], '//*[@value=%s]'% self.preset[22]) #重新获取该元素
 			if el2.text == self.preset[22]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		for i in xrange(10):
 			self.element(self.driver,self.using[23], self.value[23]).click()    #下一步
 			el3 = self.element(self.driver,self.using[24], self.value[24])     #提示
@@ -166,6 +172,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[26], '//*[@value=%s]'% self.preset[26]) #重新获取该元素
 			if el2.text == self.preset[26]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		el4 = self.element(self.driver,self.using[27], self.value[27])     #输入验证码
 		el4.send_keys(self.preset[27].encode('utf-8').decode("utf-8"))
 		for i in xrange(10):
@@ -189,6 +197,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[31], '//*[@value=%s]'% self.preset[31]) #重新获取该元素
 			if el2.text == self.preset[31]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		el4 = self.element(self.driver,self.using[32], self.value[32])     #输入验证码
 		el4.send_keys(self.preset[32].encode('utf-8').decode("utf-8"))
 		for i in xrange(10):
@@ -215,6 +225,8 @@ class IOSSDK(unittest.TestCase,t.Methods,xl.Case_xls):
 			el2 = self.element(self.driver,self.using[36], '//*[@value=%s]'% self.preset[36]) #重新获取该元素
 			if el2.text == self.preset[36]:  #判断输入的与 预置是否一致
 				break
+			else:
+				el.clear()
 		el4 = self.element(self.driver,self.using[37], self.value[37])     #输入验证码
 		el4.send_keys(self.preset[37].encode('utf-8').decode("utf-8"))
 		self.element(self.driver,self.using[38], self.value[38]).click()    #下一步

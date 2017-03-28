@@ -15,7 +15,7 @@ def Creatsuite():
     #定义单元测试容器
     testunit = unittest.TestSuite()
     #定搜索用例文件的方法
-    discover = unittest.defaultTestLoader.discover(casepath, pattern='test0*', top_level_dir=None)
+    discover = unittest.defaultTestLoader.discover(casepath, pattern='test06*', top_level_dir=None)
     #将测试用例加入测试容器中
     for testsuite in discover:
         for casename in testsuite:
